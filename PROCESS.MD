@@ -17,3 +17,4 @@
 - Paranoidly check that I haven't left any secrets in
 - Commit and Push to Repo
 - Push to Heroku
+- Add runtime.txt to force Heroku to use Python three
