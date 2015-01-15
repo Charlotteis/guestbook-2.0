@@ -20,3 +20,5 @@
 - Add runtime.txt to force Heroku to use Python three
 - Create guestbook2 application
 - Create 'Post' model and Make Migrations
+- Created superuser for admin interface
+- Registered Post model to Admin Interface
