@@ -20,10 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if "DEBUG" in os.environ:
-    DEBUG = os.environ["DEBUG"]
-else:
-    DEBUG = False
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -60,21 +57,17 @@ WSGI_APPLICATION = 'guestbook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-if "DEBUG" in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'guestbookdb',
-            'USER': 'guestbook',
-            'PASSWORD': '',
-            'HOST': 'localhost',
-            'PORT': '5432'
-        }
-    }
-else:
-    # # Parse database configuration from $DATABASE_URL from Django
-    import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
+DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'guestbookdb',
+    #     'USER': 'guestbook',
+    #     'PASSWORD': '',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432'
+    # }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -98,6 +91,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+# # Parse database configuration from $DATABASE_URL from Django
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
 
 # honor the "X-Forwarded Proto" header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
