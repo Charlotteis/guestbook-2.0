@@ -18,3 +18,5 @@
 - Commit and Push to Repo
 - Push to Heroku
 - Add runtime.txt to force Heroku to use Python three
+- Create guestbook2 application
+- Create 'Post' model and Make Migrations
