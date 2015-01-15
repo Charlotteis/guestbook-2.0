@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ["DEBUG"]:
+if "DEBUG" in os.environ:
     DEBUG = os.environ["DEBUG"]
 else:
     DEBUG = False
@@ -60,7 +60,7 @@ WSGI_APPLICATION = 'guestbook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-if os.environ["DEBUG"]:
+if "DEBUG" in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
