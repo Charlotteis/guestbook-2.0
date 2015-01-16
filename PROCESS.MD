@@ -22,3 +22,7 @@
 - Create 'Post' model and Make Migrations
 - Created superuser for admin interface
 - Registered Post model to Admin Interface
+
+### 16/01/2015
+- Added template directory and connected it within settings.py
+- Add and overide admin base_site and index templates
