@@ -1,3 +1,6 @@
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.utils import timezone
@@ -41,8 +44,19 @@ def add_post(request):
     else:
         post_comment = request.POST["comment"]
 
+    # Check to make sure the URL is valid, if it isn't, throw an error.
+    validate = URLValidator()
+    try:
+        validate(request.POST["website"])
+    except ValidationError:
+        return render(request, "guestbook2/form.html", {
+            "error_message": "You've entered an invalid URL, \
+                              make sure it starts with http://"
+        })
+    else:
+        post_website = request.POST["website"]
+
     post_email = request.POST["email"]
-    post_website = request.POST["website"]
     post_date = timezone.now()
 
     post = Post(name=post_name, comment=post_comment, email=post_email,
