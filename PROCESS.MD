@@ -29,4 +29,7 @@
 - Created basic index view
 - Mapped index view to url within guestbook app
 - Mapped guestbook app to guestbook project urls
-- Set up guestbook2/index template and rendered it in view
+- Set up guestbook2/index template and rendered it in viewgc
+
+- Started to create form
+- Switched to a generic index view (class-based)

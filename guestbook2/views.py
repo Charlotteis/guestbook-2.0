@@ -1,13 +1,13 @@
 from django.shortcuts import render
+from django.views import generic
 
 from .models import Post
 
 
-def index(request):
-    """ Renders the guestbook2/index.html template
-    """
+class IndexView(generic.ListView):
+    template_name = "guestbook2/index.html"
+    context_object_name = "latest_posts_list"
 
-    latest_posts_list = Post.objects.order_by("-date")[:10]
-    context = {"latest_posts_list": latest_posts_list}
-
-    return render(request, "guestbook2/index.html", context)
+    def get_queryset(Self):
+        """ Return the last 10 submitted posts """
+        return Post.objects.order_by("-date")[:10]
