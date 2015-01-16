@@ -1,0 +1,121 @@
+body {
+    background-color: #9BD1E5;
+    font-family: monospace;
+    line-height: 1.5em;
+    font-size: 1.125em;
+}
+
+header {
+    text-align: center;
+}
+
+header img {
+    width: 60%;
+    max-width: 30em;
+}
+
+main {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.sign {
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+.sign a {
+    color: #000000;
+}
+
+hr {
+    border: none;
+    height: 37px;
+    background: url(/static/guestbook2/img/hr.png) 50% 0 no-repeat;
+    margin: 1.5em 0;
+}
+
+.comment {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 0.5em;
+}
+
+.text {
+    margin: 0 0 0.5em 0;
+}
+
+.date {
+    margin: 0;
+    text-align: right;
+}
+
+.details {
+    background-color: #004855;
+    color: #FFA500;
+    padding: 0.5em;
+}
+
+.details a {
+    color: #FFA500;
+}
+
+footer {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#counter {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    max-width: 10em;
+    text-align: center;
+}
+
+#count {
+    color: #000000;
+}
+
+#personal {
+    color: #004855;
+}
+
+#personal a {
+    color: #004855;
+}
+
+input {
+    border-radius: 0;
+}
+
+textarea {
+    border: none;
+    border-radius: 0;
+    margin: 0 0 0.5em 0;
+}
+
+input[type="text"] {
+    border: none;
+    padding: 0.5em;
+    margin: 0 0 0.5em 0;
+}
+
+input[type="email"] {
+    border: none;
+    padding: 0.5em;
+    margin: 0 0 0.5em 0;
+}
+
+input[type="submit"] {
+    padding: 0.5em;
+    border: 1px solid #FC24AA;
+    background-color: #808080;
+    color: #FFFFFF;
+}
+
+label {
+    background-color: #004855;
+    color: #FFA500;
+    padding: 0.5em;
+}

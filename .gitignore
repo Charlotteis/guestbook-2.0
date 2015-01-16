@@ -48,7 +48,7 @@ coverage.xml
 *.log
 
 # Heroku told me to
-staticfiles
+
 
 # Sphinx documentation
 docs/_build/
