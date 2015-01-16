@@ -40,3 +40,4 @@
 - Load Staticfiles
 - Add stylesheets
 - Add images
+- Display nicely styled full post in index

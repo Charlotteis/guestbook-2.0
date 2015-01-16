@@ -2,12 +2,61 @@
 
 {% block content %}
     {% if latest_posts_list %}
-        <ul>
         {% for post in latest_posts_list %}
-            <li>{{ post.comment }}</li>
+            <article class="post" role="article">
+                <div class="comment">
+                    <p class="text">
+                        {{ post.comment }}
+                    </p>
+                    <p class="date">
+                        {{ post.date }}
+                    </p>
+                </div>
+
+                <div class="details">
+                    <span class="name">
+                        {{ post.name }}
+                    </span>
+
+                    {% if post.email %}
+                    <span class="email">
+                        | <a href="mailto:{{ post.email }}">@</a>
+                    </span>
+                    {% endif %}
+
+                    {% if post.website %}
+                    <span class="website">
+                        | <a href="{{ post.website }}">WWW</a>
+                    </span>
+                    {% endif %}
+                </div>
+            </article>
+
+            <hr>
         {% endfor %}
-        </ul>
     {% else %}
-        <p>No posts are available.</p>
+        <article class="post" role="article">
+            <div class="comment">
+                <p class="text">
+                    There are no posts to display! This is a fake post to show
+                    you what it would look like if you add posts to your
+                    guestbook
+                </p>
+            </div>
+
+            <div class="details">
+                <span class="name">
+                    Charlotte
+                </span>
+
+                <span class="email">
+                    | <a href="mailto:charlottelaspencer@gmail.com">@</a>
+                </span>
+
+                <span class="website">
+                    | <a href="http://twitter.com/charlotteis">WWW</a>
+                </span>
+            </div>
+        </article>
     {% endif %}
 {% endblock %}
