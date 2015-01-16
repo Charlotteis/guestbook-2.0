@@ -46,15 +46,17 @@ def add_post(request):
 
     # Check to make sure the URL is valid, if it isn't, throw an error.
     validate = URLValidator()
-    try:
-        validate(request.POST["website"])
-    except ValidationError:
-        return render(request, "guestbook2/form.html", {
-            "error_message": "You've entered an invalid URL, \
-                              make sure it starts with http://"
-        })
-    else:
-        post_website = request.POST["website"]
+    post_website = request.POST["website"]
+    if post_website != "":
+        try:
+            validate(request.POST["website"])
+        except ValidationError:
+            return render(request, "guestbook2/form.html", {
+                "error_message": "You've entered an invalid URL, \
+                                  make sure it starts with http://"
+            })
+        else:
+            post_website = request.POST["website"]
 
     post_email = request.POST["email"]
     post_date = timezone.now()
