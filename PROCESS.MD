@@ -33,3 +33,6 @@
 
 - Started to create form
 - Switched to a generic index view (class-based)
+- Added form template and url
+- Add generic Form template view
+- Add "add_post" method to work on form data
