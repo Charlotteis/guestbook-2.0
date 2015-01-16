@@ -1,12 +1,13 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'guestbook2/css/normalize.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'guestbook2/css/style.css' %}" />
-{% if latest_posts_list %}
-    <ul>
-    {% for post in latest_posts_list %}
-        <li>{{ post.comment }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No posts are available.</p>
-{% endif %}
+{% extends "guestbook2/base.html" %}
+
+{% block content %}
+    {% if latest_posts_list %}
+        <ul>
+        {% for post in latest_posts_list %}
+            <li>{{ post.comment }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts are available.</p>
+    {% endif %}
+{% endblock %}

@@ -1,9 +1,12 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'guestbook2/css/normalize.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'guestbook2/css/style.css' %}" />
+{% extends "guestbook2/base.html" %}
 
-<h1>Add a Post!</h1>
+{% block title %}Add a post!{% endblock %}
 
+{% block navigation %}
+<a href="{% url 'guestbook2:index' %}" tabindex="1">Go back!</a>
+{% endblock %}
+
+{% block content %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <form method="post" action="{% url 'guestbook2:submit' %}">
 {% csrf_token %}
@@ -28,3 +31,4 @@
 
     <input type="submit" value="Submit" tabindex="1">
 </form>
+{% endblock %}
