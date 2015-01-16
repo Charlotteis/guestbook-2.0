@@ -22,7 +22,7 @@ class PostViewTests(TestCase):
         """
         response = self.client.get(reverse("guestbook2:index"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "No posts are available.")
+        self.assertContains(response, "There are no posts to display!")
         self.assertQuerysetEqual(response.context["latest_posts_list"], [])
 
     def test_index_view_with_a_past_post(self):
@@ -42,7 +42,7 @@ class PostViewTests(TestCase):
         """
         create_post(name="Charlotte", comment="test_index_future_post", days=30)
         response = self.client.get(reverse("guestbook2:index"))
-        self.assertContains(response, "No posts are available.",
+        self.assertContains(response, "There are no posts to display!",
                             status_code=200)
         self.assertQuerysetEqual(response.context["latest_posts_list"], [])
 
@@ -69,4 +69,29 @@ class PostViewTests(TestCase):
         self.assertQuerysetEqual(
             response.context["latest_posts_list"],
             ["<Post: Past Q2>", "<Post: Past Q1>"]
+        )
+
+    def test_index_view_only_displays_ten_posts(self):
+        """
+        Make sure the index page only displays ten posts.
+        """
+        create_post(name="Charlotte", comment="Past Q1", days=-30)
+        create_post(name="Charlotte", comment="Past Q2", days=-30)
+        create_post(name="Charlotte", comment="Past Q3", days=-30)
+        create_post(name="Charlotte", comment="Past Q4", days=-30)
+        create_post(name="Charlotte", comment="Past Q5", days=-30)
+        create_post(name="Charlotte", comment="Past Q6", days=-30)
+        create_post(name="Charlotte", comment="Past Q7", days=-30)
+        create_post(name="Charlotte", comment="Past Q8", days=-30)
+        create_post(name="Charlotte", comment="Past Q9", days=-30)
+        create_post(name="Charlotte", comment="Past Q10", days=-30)
+        create_post(name="Charlotte", comment="Past Q11", days=-30)
+        create_post(name="Charlotte", comment="Past Q12", days=-30)
+        response = self.client.get(reverse("guestbook2:index"))
+        self.assertQuerysetEqual(
+            response.context["latest_posts_list"],
+            ["<Post: Past Q12>", "<Post: Past Q11>", "<Post: Past Q10>",
+             "<Post: Past Q9>", "<Post: Past Q8>", "<Post: Past Q7>",
+             "<Post: Past Q6>", "<Post: Past Q5>", "<Post: Past Q4>",
+             "<Post: Past Q3>"]
         )
