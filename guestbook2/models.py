@@ -9,4 +9,4 @@ class Post(models.Model):
     date = models.DateTimeField("date published")
 
     def __str__(self):
-        return "{0} - {1}".format(self.name, self.date)
+        return self.comment

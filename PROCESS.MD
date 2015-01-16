@@ -26,3 +26,7 @@
 ### 16/01/2015
 - Added template directory and connected it within settings.py
 - Add and overide admin base_site and index templates
+- Created basic index view
+- Mapped index view to url within guestbook app
+- Mapped guestbook app to guestbook project urls
+- Set up guestbook2/index template and rendered it in view
